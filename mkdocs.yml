@@ -1,0 +1,61 @@
+# The Kova Plugins wiki, built from docs/ by MkDocs Material.
+# Published by tools/publish-wiki.sh to the public kova-wiki repo, which builds GitHub Pages.
+site_name: Kova Plugins Wiki
+site_description: Documentation for KovaLib and the Kova plugins for Paper servers.
+site_url: https://kyossss.github.io/kova-wiki/
+docs_dir: docs
+strict: true
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/weather-sunny
+        name: Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/weather-night
+        name: Dark mode
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - toc.follow
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.details
+
+nav:
+  - Home: index.md
+  - KovaLib:
+      - kovalib/index.md
+      - Installing: kovalib/installation.md
+      - The resource pack: kovalib/resource-pack.md
+      - Configuration: kovalib/configuration.md
+      - Pictures and fonts: kovalib/customization.md
+      - Troubleshooting: kovalib/troubleshooting.md
+      - For developers:
+          - Getting started: kovalib/developers/getting-started.md
+          - Drawing screens: kovalib/developers/screens.md
+          - Display options: kovalib/developers/options.md
+          - When menus can show: kovalib/developers/readiness.md
+          - API reference: kovalib/developers/reference.md
