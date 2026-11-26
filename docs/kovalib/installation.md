@@ -1,7 +1,7 @@
 # Installing KovaLib
 
-1. **Check the requirements.** You need a Paper (or Purpur) server on Minecraft 1.21.4 or newer.
-   Menus currently show on 26.1 and newer. See [Requirements](index.md#requirements).
+1. **Check the requirements.** You need a Paper (or Purpur) server on Minecraft 1.21.4 to 26.3.
+   See [Requirements](index.md#requirements).
 2. **Install packetevents** (recommended). Download it from
    [Modrinth](https://modrinth.com/plugin/packetevents) and put the jar in `plugins/`. Without it,
    menus that hold the camera over the world won't open, and KovaLib can't work out the address to
@@ -37,3 +37,6 @@ resource pack has loaded, gets KovaLib's test menu. They can reopen it with the 
 Replace the jar and restart. Your `config.yml`, `textures/` and `fonts/` are kept: KovaLib never
 overwrites a file you have. If you host or merge the pack yourself, re-upload or re-merge
 `pack/kovalib-pack.zip` after every update.
+
+When a new Minecraft version comes out, menus won't show for players on it until KovaLib is updated
+for it. Nothing breaks in the meantime; the menu simply doesn't appear.

@@ -15,8 +15,8 @@ Their client doesn't have KovaLib's resource pack, or doesn't have it **yet**.
 
 ## The menu doesn't show at all, but nothing looks broken
 
-- **Check the Minecraft version.** Menus currently show on **26.1 and newer**. On older versions KovaLib
-  says so in the log.
+- **Check the player's Minecraft version.** KovaLib supports 1.21.4 to 26.3. On a newer version, menus
+  don't show until KovaLib is updated for it.
 - **Look for the overlay warning.** `The pack has other text shaders in overlays...` means another plugin's
   shader is replacing KovaLib's. Most often that's a Nexo animated GIF glyph. See
   [Other plugins' shaders](resource-pack.md#other-plugins-shaders).

@@ -27,7 +27,7 @@ How the menu font and shader reach players. See [The resource pack](resource-pac
 | Key | Default | What it does |
 |---|---|---|
 | `cursor.sensitivity` | `14.0` | How far the cursor moves (in canvas pixels, out of 1920×1080) per degree the mouse turns. Higher is faster. |
-| `cursor.smoothing-delay` | `1.5` | How smoothly the cursor glides, in ticks. `0` turns smoothing off; `2` is the smoothest. Above 2 gets worse. |
+| `cursor.smoothing-delay` | `1.5` | How smoothly the cursor glides, in ticks. `0` turns smoothing off; `2` is the smoothest. Above 2 gets worse. Players on 1.21.5 never get smoothing (see [Limits](index.md#limits-worth-knowing)). |
 
 ## Other settings
 

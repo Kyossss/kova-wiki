@@ -65,10 +65,14 @@ into it, so players download one pack:
 
 1. Set `pack.mode: merged` and restart.
 2. Copy everything from `plugins/KovaLib/pack/kovalib-pack.zip` **except `pack.mcmeta`** into your pack.
-3. Re-merge after every KovaLib update.
+   That includes the `kovalib_*` folders: KovaLib's shader for each Minecraft version lives in one of them.
+3. Open the zip's `pack.mcmeta` and copy every entry of its `"overlays"` list into the `"overlays"` list
+   of your own `pack.mcmeta` (create the list if you have none). Without these entries the shaders are
+   never used, and menus don't show.
+4. Re-merge after every KovaLib update.
 
-If your pack already has `assets/minecraft/shaders/core/rendertype_text.vsh` or `text.vsh`, those files
-clash with KovaLib's. Only one of each can be in a pack.
+If your pack already has its own `assets/minecraft/shaders/core/rendertype_text.vsh` or `text.vsh`,
+those clash with KovaLib's. A pack can only use one of each per Minecraft version.
 
 ## Players who decline the pack
 

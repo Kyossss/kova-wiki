@@ -37,16 +37,23 @@ alone.
 | | |
 |---|---|
 | Server software | **Paper**, or a Paper fork such as Purpur. Spigot and Folia are not supported. |
-| Minecraft | Installs on **1.21.4 and newer**. Menus currently show on **26.1 and newer**; support for 1.21.4–1.21.11 is in progress. |
+| Minecraft | **1.21.4 to 26.3**, players on any of those versions (with ViaVersion, too). A newer Minecraft version needs a KovaLib update before menus show on it. |
 | Java | 21 or newer (the version your Minecraft server already needs) |
 | Recommended | [packetevents](https://modrinth.com/plugin/packetevents), needed for menus over the world, the action-bar guard and automatic pack addresses |
 | Optional | Nexo (carries the pack), BetterHud (shares its shader, HUD hidden under menus) |
+
+!!! note "Tested versions"
+    KovaLib has been tested in game on **Minecraft 26.1.2**, with and without Nexo. Its menus for
+    1.21.4 to 26.3 are built from each version's own game files, but haven't been tested in game on
+    those versions yet. If menus don't show on your version, please
+    [report it](troubleshooting.md#collecting-details-for-a-bug-report).
 
 ## Limits worth knowing
 
 - Menu text is **plain English letters, digits and punctuation** (printable ASCII). Other characters show as `?`.
 - Text comes in **4 sizes** and **8 colours** (see [the developer docs](developers/screens.md#text)).
 - Menu pictures are loaded at startup. Changing one needs a **restart**.
+- On **1.21.5** clients the cursor moves in steps instead of gliding: that version gives the menu shader no clock to smooth it with. Everything else works the same.
 - A menu is shown through the action bar, so while one is open, other plugins' action-bar messages are held back.
 
 ## Next
