@@ -19,9 +19,6 @@ CanvasOptions.overlay()                               // drawn over gameplay, ta
 | Cursor and clicks | Yes | Yes | Yes | No |
 | Player held still | Yes | Yes | Yes | No |
 | Vanilla HUD | Shown | Shown | Hidden | Shown |
-| Needs packetevents | No | **Yes** | **Yes** | No |
-
-Opening a style that holds the camera without packetevents throws `IllegalStateException`.
 
 ### Over the world
 

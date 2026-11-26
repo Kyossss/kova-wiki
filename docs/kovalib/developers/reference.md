@@ -21,6 +21,8 @@ Get it with `getServer().getServicesManager().load(CanvasService.class)`.
 | `refresh(Player)` | Draw the player's screen again on the next tick |
 | `fadeToBlack(Player, int ticks)` | Fade the screen to black and hold it (at most `FADE_HOLD_TICKS`, 200) |
 | `fadeFromBlack(Player, int ticks)` | Clear a fade |
+| `ask(Player, TextInput, TextInputHandler)` | Open a text box. See [Text input](text-input.md). |
+| `isAsking(Player)`, `cancelAsk(Player)` | Whether a text box is open; close it (the handler hears `onCancel`) |
 
 ## `CanvasScreen`
 
@@ -68,6 +70,18 @@ Record `(Size size, Colour colour, Align align, boolean shadow, String font)`.
 
 `Size { SMALL(24), MEDIUM(32), LARGE(48), HUGE(64) }` with `pixels()`;
 `Colour { WHITE, GRAY, DARK_GRAY, BLACK, RED, GREEN, YELLOW, AQUA }`; `Align { LEFT, CENTER, RIGHT }`.
+
+## `TextInput` and `TextInputHandler`
+
+Record `TextInput(String title, String initial, int maxLength)`: `TextInput.of(title)`, then `initial(String)`
+and `maxLength(int)` (1 to `CLIENT_LIMIT`, 50).
+
+| `TextInputHandler` method | Called |
+|---|---|
+| `check(Player, String)` *(default: null)* | On every keystroke; return null if the text can be submitted, else a short reason |
+| `onType(Player, String)` *(default: nothing)* | On every keystroke |
+| `onSubmit(Player, String)` | The player confirmed valid text |
+| `onCancel(Player)` *(default: nothing)* | Closed without an answer |
 
 ## `CloseReason`
 

@@ -58,4 +58,5 @@ nav:
           - Drawing screens: kovalib/developers/screens.md
           - Display options: kovalib/developers/options.md
           - When menus can show: kovalib/developers/readiness.md
+          - Text input: kovalib/developers/text-input.md
           - API reference: kovalib/developers/reference.md

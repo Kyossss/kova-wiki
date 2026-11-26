@@ -145,4 +145,5 @@ thread too.
 - [Drawing screens](screens.md): art, buttons, text, layout
 - [Display options](options.md): backdrop, over the world, spectator, overlay, fades
 - [Knowing when menus can show](readiness.md)
+- [Text input](text-input.md): asking players to type
 - [API reference](reference.md)

@@ -38,13 +38,12 @@ pack:
     required: false # true = kick players who decline
 ```
 
-**The address in the download link.** By default KovaLib uses the address each player typed to join
-(this needs packetevents), or your `server-ip` from `server.properties`. Set `pack.own.address` to your
+**The address in the download link.** By default KovaLib uses the address each player typed to join,
+or your `server-ip` from `server.properties`. Set `pack.own.address` to your
 server's address if:
 
 - you're **behind a proxy** (Velocity, BungeeCord). The address players type is the proxy's, not this
   server's, so set it to an address that reaches *this* server's port 8164.
-- you don't have packetevents and `server-ip` is blank.
 
 The pack is built the same way every time, so players who come back don't download it again unless
 KovaLib or your pictures changed.

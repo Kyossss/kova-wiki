@@ -2,10 +2,9 @@
 
 1. **Check the requirements.** You need a Paper (or Purpur) server on Minecraft 1.21.4 to 26.3.
    See [Requirements](index.md#requirements).
-2. **Install packetevents** (recommended). Download it from
-   [Modrinth](https://modrinth.com/plugin/packetevents) and put the jar in `plugins/`. Without it,
-   menus that hold the camera over the world won't open, and KovaLib can't work out the address to
-   send its pack from.
+2. **Install packetevents** (required, free). Download it from
+   [Modrinth](https://modrinth.com/plugin/packetevents) and put the jar in `plugins/`. KovaLib won't
+   start without it.
 3. **Put `KovaLib-<version>.jar` in `plugins/`**, along with the plugin that uses it (for example
    KovaProfile).
 4. **Start the server.** KovaLib creates `plugins/KovaLib/` with:

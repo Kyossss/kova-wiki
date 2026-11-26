@@ -30,6 +30,8 @@ alone.
   hides the BetterHud HUD while a menu is open.
 - **Re-skinnable.** Every menu picture, from KovaLib and from plugins built on it, can be replaced with
   your own PNG, and you can add your own fonts. See [Customizing](customization.md).
+- **Typing without chat.** Plugins can ask players to type, such as a name or a search, in a text box
+  that updates as they type. See [Text input](developers/text-input.md).
 - **No commands, no permissions.** Everything is in `config.yml`.
 
 ## Requirements
@@ -39,7 +41,7 @@ alone.
 | Server software | **Paper**, or a Paper fork such as Purpur. Spigot and Folia are not supported. |
 | Minecraft | **1.21.4 to 26.3**, players on any of those versions (with ViaVersion, too). A newer Minecraft version needs a KovaLib update before menus show on it. |
 | Java | 21 or newer (the version your Minecraft server already needs) |
-| Recommended | [packetevents](https://modrinth.com/plugin/packetevents), needed for menus over the world, the action-bar guard and automatic pack addresses |
+| Required | [packetevents](https://modrinth.com/plugin/packetevents) (free) |
 | Optional | Nexo (carries the pack), BetterHud (shares its shader, HUD hidden under menus) |
 
 !!! note "Tested versions"

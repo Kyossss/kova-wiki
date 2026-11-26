@@ -24,10 +24,14 @@ Their client doesn't have KovaLib's resource pack, or doesn't have it **yet**.
   include your plugin list.
 - **Check that `shader.enabled` is `true`.**
 
-## A menu that should show the world says it needs packetevents
+## KovaLib doesn't start: "Unknown dependency packetevents"
 
-Menus that hold the camera over the world, and menus in spectator style, need
-[packetevents](https://modrinth.com/plugin/packetevents). Install it and restart.
+KovaLib needs [packetevents](https://modrinth.com/plugin/packetevents). Install it and restart.
+
+## The text box doesn't open
+
+The startup log says `Text input ready` when typing works. If it says `Text input is unavailable`
+instead, update packetevents and KovaLib, then send the log with your server version.
 
 ## The cursor is too fast, too slow, or jittery
 
