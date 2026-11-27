@@ -27,13 +27,15 @@ How the menu font and shader reach players. See [The resource pack](resource-pac
 | Key | Default | What it does |
 |---|---|---|
 | `cursor.sensitivity` | `14.0` | How far the cursor moves (in canvas pixels, out of 1920×1080) per degree the mouse turns. Higher is faster. |
-| `cursor.smoothing-delay` | `1.5` | How smoothly the cursor glides, in ticks. `0` turns smoothing off; `2` is the smoothest. Above 2 gets worse. Players on 1.21.5 never get smoothing (see [Limits](index.md#limits-worth-knowing)). |
+| `cursor.instant` | `true` | Move the cursor the moment the player's mouse report arrives, instead of at the server's next tick: quicker and steadier. Turn it off only if the cursor misbehaves. |
+| `cursor.smoothing-delay` | `1.0` | How far behind the mouse the cursor glides, in ticks. Lower is snappier but can stutter on a laggy connection; `0` turns smoothing off. With `cursor.instant` off, `1.5` works better. Players on 1.21.5 never get smoothing (see [Limits](index.md#limits-worth-knowing)). |
 
 ## Other settings
 
 | Key | Default | What it does |
 |---|---|---|
 | `action-bar-guard` | `true` | While a menu is open, hold back other plugins' action-bar messages, which would otherwise replace the menu for up to a second. If a menu ever fails to show at all, try turning this off first. |
+| `text-input.hide-anvil` | `true` | When a plugin asks a player to type, show KovaLib's own text box instead of an anvil. Turned off, everyone gets the plain anvil. Needs `shader.enabled`. See [Text input](developers/text-input.md#what-the-player-sees). |
 | `hide-betterhud` | `true` | Hide the player's BetterHud HUD while a menu is open, and bring it back after. A player who turned their own HUD off keeps it off. |
 | `debug` | `false` | Log every click, what each player's client sends while a menu is open, and each step of their resource pack loading. Noisy; for troubleshooting only. |
 | `test-screen` | `off` | Show KovaLib's test menu. See below. |

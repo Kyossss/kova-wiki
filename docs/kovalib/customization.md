@@ -8,7 +8,8 @@ plugin that owns it:
 
 ```
 plugins/KovaLib/textures/
-  kovalib/          KovaLib's own: cursor.png, backdrop.png, the test menu's pictures
+  kovalib/          KovaLib's own: cursor.png, backdrop.png, the text box (input_*.png),
+                    the test menu's pictures
   kovaprofile/      KovaProfile's menu pictures (when installed)
 ```
 

@@ -16,7 +16,7 @@ your jar.
 <dependency>
     <groupId>dev.kova</groupId>
     <artifactId>kovalib-api</artifactId>
-    <version>0.3.0</version>
+    <version>0.6.0</version>
     <scope>provided</scope>
 </dependency>
 ```

@@ -14,7 +14,8 @@ alone.
 ## What players get
 
 - **A free-moving cursor.** Players move it by moving the mouse, click with **left click**, and
-  usually leave with **sneak** (a menu can choose to stay open).
+  usually leave with **sneak** (a menu can choose to stay open). It follows the mouse the moment the
+  player's game reports it, and glides smoothly in between.
 - **The same layout on every screen.** Menus are drawn on a fixed 1920×1080 canvas, scaled to fit and
   letterboxed, so they look the same at any GUI scale and window size.
 - **Menus over the world or over a backdrop.** A menu can hold the camera still on a scene, or cover
@@ -30,8 +31,8 @@ alone.
   hides the BetterHud HUD while a menu is open.
 - **Re-skinnable.** Every menu picture, from KovaLib and from plugins built on it, can be replaced with
   your own PNG, and you can add your own fonts. See [Customizing](customization.md).
-- **Typing without chat.** Plugins can ask players to type, such as a name or a search, in a text box
-  that updates as they type. See [Text input](developers/text-input.md).
+- **Typing without chat.** Plugins can ask players to type, such as a name or a search, in KovaLib's
+  own text box, which updates as they type. See [Text input](developers/text-input.md).
 - **No commands, no permissions.** Everything is in `config.yml`.
 
 ## Requirements
@@ -45,7 +46,8 @@ alone.
 | Optional | Nexo (carries the pack), BetterHud (shares its shader, HUD hidden under menus) |
 
 !!! note "Tested versions"
-    KovaLib has been tested in game on **Minecraft 26.1.2**, with and without Nexo. Its menus for
+    KovaLib has been tested in game on **Minecraft 26.1.2**, with and without Nexo, and with a
+    shaderpack (Complementary) on: menus, the cursor and the text box look exactly the same. Its menus for
     1.21.4 to 26.3 are built from each version's own game files, but haven't been tested in game on
     those versions yet. If menus don't show on your version, please
     [report it](troubleshooting.md#collecting-details-for-a-bug-report).
@@ -55,7 +57,7 @@ alone.
 - Menu text is **plain English letters, digits and punctuation** (printable ASCII). Other characters show as `?`.
 - Text comes in **4 sizes** and **8 colours** (see [the developer docs](developers/screens.md#text)).
 - Menu pictures are loaded at startup. Changing one needs a **restart**.
-- On **1.21.5** clients the cursor moves in steps instead of gliding: that version gives the menu shader no clock to smooth it with. Everything else works the same.
+- On **1.21.5** clients the cursor moves in steps instead of gliding, and typing happens in a plain anvil instead of KovaLib's text box: that version gives the menu shaders no clock to work with. Everything else works the same.
 - A menu is shown through the action bar, so while one is open, other plugins' action-bar messages are held back.
 
 ## Next

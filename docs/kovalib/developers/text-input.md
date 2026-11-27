@@ -27,20 +27,39 @@ canvas.ask(player, TextInput.of("Name your profile").maxLength(16), new TextInpu
 
 ## What the player sees
 
-An anvil-style screen with your title. Its text box is where they type, and two slots beside it act as
-buttons:
+**KovaLib's text box:** a panel with your title, a field showing what they type, and your `check`
+message underneath (in red, or "Ready" in green). It's the same size at every GUI scale.
 
-| Slot | Does |
+| To | The player |
 |---|---|
-| **Confirm** (green dye) | Submits the text. Shows your `check` message in red instead while the text isn't acceptable. |
-| **Cancel** (barrier) | Closes without an answer |
+| **Confirm** | Clicks anywhere. Ignored while your `check` returns a reason. |
+| **Cancel** | Presses **Escape** |
 
-**Escape** also cancels. Their own inventory shows below as usual, but nothing in the screen can be
-taken or moved.
+They use their normal mouse pointer while the box is open. The world stays visible behind it, without
+darkening, and their inventory isn't shown.
+
+The box's pictures can be replaced like any other (`plugins/KovaLib/textures/kovalib/input_*.png`; see
+[Customizing](../customization.md)).
+
+**A plain anvil instead,** with your title, the text field, and two slots as the buttons (Confirm is
+green dye, Cancel is a barrier), for:
+
+- players on **1.21.5** (its client can't hide the anvil);
+- players whose resource pack hasn't loaded yet;
+- everyone, when the server owner turns `text-input.hide-anvil` off.
+
+Your code is the same either way: the same handler, called the same way. Nothing in either screen can
+be taken or moved.
+
+??? note "How it works"
+    Both are an anvil screen that exists only on the player's client: its rename field is the one
+    vanilla text box that reports every keystroke. For the text box, KovaLib's resource pack hides that
+    anvil while the box is open, and the canvas draws the box in its place. The anvil is hidden for
+    that one player, and only while they type, so real anvils look normal.
 
 ## Live typing
 
-The text box reports every keystroke, so `check` runs and the confirm button updates as they type.
+The text box reports every keystroke, so `check` runs and its message updates as they type.
 `onType` is called on every keystroke too, which is useful for a live search:
 
 ```java
