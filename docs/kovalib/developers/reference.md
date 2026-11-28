@@ -42,6 +42,7 @@ Constants `WIDTH = 1920`, `HEIGHT = 1080`, `BOX_GRID = 4`. Every draw method ret
 | `art(String key, int x, int y)` | Draw a picture, top-left at x, y |
 | `box(int x, int y, int width, int height, int argb[, int radius])` | A filled box, any ARGB colour, optionally rounded; snaps to a 4-pixel grid ([Boxes](screens.md#boxes)) |
 | `button(String id, String artKey, int x, int y[, boolean enabled])` | Draw a clickable button |
+| `area(String id, int x, int y, int width, int height[, boolean enabled])` | Make a rectangle clickable; returns its `ButtonState` (`NORMAL`, `HOVER`, `PRESSED`, `DISABLED`) to draw it by ([Click areas](screens.md#click-areas)) |
 | `text(String text, int x, int y[, TextStyle style])` | One line of text, top of the line at y |
 | `textWidth(String text, TextStyle.Size size)`, `textWidth(String, TextStyle)` | Measure text |
 
@@ -60,14 +61,16 @@ Enums: `Mode { ADVENTURE, SPECTATOR }`, `Input { CURSOR, NONE }`. See [Display o
 
 ## `TextStyle`
 
-Record `(Size size, Colour colour, Align align, boolean shadow, String font)`.
+Record `(Size size, Colour colour, Align align, boolean shadow, String font, int argb)`. `argb` is any
+colour (`0xAARRGGBB`) used instead of `colour`; `0` means use `colour`.
 
 | | |
 |---|---|
 | `TextStyle.DEFAULT` | Medium, white, left, shadowed, `default` font |
 | `TextStyle.of(Size, Colour)` | Left-aligned, shadowed |
+| `TextStyle.of(Size, int argb)` | Any colour, left-aligned, shadowed |
 | `new TextStyle(Size, Colour, Align)` | Shadowed, default font |
-| `align(Align)`, `shadow(boolean)`, `font(String)` | Copies with one field changed |
+| `align(Align)`, `shadow(boolean)`, `font(String)`, `colour(Colour)`, `colour(int argb)` | Copies with one field changed |
 
 `Size { SMALL(24), MEDIUM(32), LARGE(48), HUGE(64) }` with `pixels()`;
 `Colour { WHITE, GRAY, DARK_GRAY, BLACK, RED, GREEN, YELLOW, AQUA }`; `Align { LEFT, CENTER, RIGHT }`.

@@ -55,7 +55,7 @@ alone.
 ## Limits worth knowing
 
 - Menu text is **plain English letters, digits and punctuation** (printable ASCII). Other characters show as `?`.
-- Text comes in **4 sizes** and **8 colours** (see [the developer docs](developers/screens.md#text)).
+- Text comes in **4 sizes**, in any colour (see [the developer docs](developers/screens.md#text)).
 - Menu pictures are loaded at startup. Changing one needs a **restart**. Plain boxes are the exception: their size and colour can change at any time.
 - Boxes line up on a **4-pixel grid** on the 1920×1080 menu canvas.
 - On **1.21.5** clients the cursor moves in steps instead of gliding, and typing happens in a plain anvil instead of KovaLib's text box: that version gives the menu shaders no clock to work with. Everything else works the same.

@@ -72,22 +72,50 @@ painter.button("play", "myplugin:play", x, y, false);    // disabled: greyed art
 
 A click plays a button sound and shows the pressed state before `onClick` is called.
 
+## Click areas
+
+A click area makes any rectangle clickable without drawing anything, and tells you how to draw it
+this frame. Build buttons from boxes and text with it, instead of a picture for every state.
+
+```java
+ButtonState state = painter.area("play", 760, 420, 400, 80);
+int colour = switch (state) {
+    case HOVER -> 0xFF5B7BE0;      // lighter under the cursor
+    case PRESSED -> 0xFF2E4BA8;    // darker for a moment after a click
+    case DISABLED -> 0xFF555555;
+    case NORMAL -> 0xFF4364CC;
+};
+painter.box(760, 420, 400, 80, colour, 16)
+       .text("Play", 960, 444, new TextStyle(Size.MEDIUM, Colour.WHITE, Align.CENTER));
+```
+
+- Call `area` **before** drawing the button, so you know which state to draw.
+- Clicks reach `onClick(player, id)`, exactly like picture buttons, with the same click sound.
+- `area(id, x, y, w, h, false)` is disabled: it reports `DISABLED` and ignores clicks.
+- **Overlaps:** where click areas or buttons overlap, the one drawn **last** (on top) gets the hover
+  and the click. A button drawn on a clickable card takes clicks on the button; the card takes the rest.
+
 ## Text
 
 ```java
 painter.text("Hello", x, y);                                   // medium, white, left-aligned, shadowed
 painter.text("Title", 960, 100, new TextStyle(Size.HUGE, Colour.YELLOW, Align.CENTER));
 painter.text("Note", x, y, TextStyle.of(Size.SMALL, Colour.GRAY).shadow(false));
+painter.text("Sale!", x, y, TextStyle.of(Size.LARGE, 0xFFFF6B35));      // any colour, 0xAARRGGBB
+painter.text("Hint", x, y, TextStyle.of(Size.SMALL, 0x80FFFFFF));       // white at 50%
 ```
 
 `y` is the top of the line. With `Align.CENTER` or `Align.RIGHT`, `x` is the centre or right edge.
 
 | Sizes (line height) | Colours |
 |---|---|
-| `SMALL` 24, `MEDIUM` 32, `LARGE` 48, `HUGE` 64 | `WHITE`, `GRAY`, `DARK_GRAY`, `BLACK`, `RED`, `GREEN`, `YELLOW`, `AQUA` |
+| `SMALL` 24, `MEDIUM` 32, `LARGE` 48, `HUGE` 64 | **Any colour:** `TextStyle.of(size, argb)` or `style.colour(argb)`, as `0xAARRGGBB`, see-through included. Or one of eight named ones: `WHITE`, `GRAY`, `DARK_GRAY`, `BLACK`, `RED`, `GREEN`, `YELLOW`, `AQUA`. |
 
 - **Printable ASCII only.** Anything else is drawn as `?`. A line wider than 4095 canvas pixels is cut short.
-- **Shadow** is on by default, and keeps light text readable over the world. Black text never gets one.
+- **Shadow** is on by default, and keeps light text readable over the world. Black text never gets
+  one, and neither does an ARGB colour whose red, green and blue are all below `0x40`. A see-through
+  colour gets a shadow at half its opacity.
+- **Faint colours:** below about 10% alpha (`0x1A`) text is not drawn at all.
 - **Fonts:** `TextStyle.font("name")` uses a font the server owner added (see
   [Customizing](../customization.md#fonts)). Check `canvas.hasFont(name)` first, because a missing
   font draws in `default`. `canvas.fonts()` lists every font.
@@ -98,7 +126,7 @@ painter.text("Note", x, y, TextStyle.of(Size.SMALL, Colour.GRAY).shadow(false));
 | Player does | Your screen hears |
 |---|---|
 | Moves the mouse | Nothing. KovaLib moves the cursor and re-renders on hover changes. |
-| Left-clicks an enabled button | `onClick(player, buttonId)` |
+| Left-clicks an enabled button or click area | `onClick(player, buttonId)` |
 | Sneaks | `onSneak(player)`. Return `true` (the default) to close, `false` to stay open. |
 
 Keep the default sneak-to-close unless the menu *must* stay up, such as a forced choice on join. It's
