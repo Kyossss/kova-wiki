@@ -35,11 +35,12 @@ Get it with `getServer().getServicesManager().load(CanvasService.class)`.
 
 ## `CanvasPainter`
 
-Constants `WIDTH = 1920`, `HEIGHT = 1080`. Every draw method returns the painter, so calls chain.
+Constants `WIDTH = 1920`, `HEIGHT = 1080`, `BOX_GRID = 4`. Every draw method returns the painter, so calls chain.
 
 | Method | |
 |---|---|
 | `art(String key, int x, int y)` | Draw a picture, top-left at x, y |
+| `box(int x, int y, int width, int height, int argb[, int radius])` | A filled box, any ARGB colour, optionally rounded; snaps to a 4-pixel grid ([Boxes](screens.md#boxes)) |
 | `button(String id, String artKey, int x, int y[, boolean enabled])` | Draw a clickable button |
 | `text(String text, int x, int y[, TextStyle style])` | One line of text, top of the line at y |
 | `textWidth(String text, TextStyle.Size size)`, `textWidth(String, TextStyle)` | Measure text |

@@ -30,6 +30,28 @@ Rules for `CanvasService.registerArt(key, png, height)`:
 
 `artWidth(key)` and `artHeight(key)` give a picture's size on the canvas, for layout.
 
+## Boxes
+
+Plain filled boxes, in any colour, square or rounded. Use them for panels, cards, dividers and
+highlights instead of drawing a picture for each one.
+
+```java
+painter.box(40, 240, 560, 600, 0xCC1E1E2E);         // dark blue-grey at 80%, square corners
+painter.box(60, 260, 240, 80, 0xFF3FA9F5, 16);      // solid blue, corners rounded by 16
+painter.box(60, 400, 200, 60, 0xFFFFFFFF, 30);      // a pill: radius = half the height
+```
+
+| | |
+|---|---|
+| Colour | `0xAARRGGBB`: alpha first, then red, green, blue. `0xFF...` is solid, `0x80...` is half see-through. Any colour, chosen at runtime: nothing goes in the resource pack. |
+| Faint colours | Below about 10% (`0x1A`) the box is not drawn at all. |
+| Grid | Edges snap to the nearest multiple of **4** canvas pixels (`CanvasPainter.BOX_GRID`). Place art and text on the same grid to line them up exactly. |
+| Radius | Canvas pixels, snapped to 4. At most half the box's shorter side (more is reduced to that) and 512. `0` or the 5-argument form gives square corners. |
+| Overlap | See-through boxes blend like glass: red at 50% over blue at 50% shows purple. A rounded box is even all over; its pieces never overlap. |
+| Off the canvas | Clipped to the 1920×1080 canvas. A box with no width or height left draws nothing. |
+
+Boxes are drawn in call order with everything else, so draw a panel first and its contents after it.
+
 ## Buttons
 
 ```java
